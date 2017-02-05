@@ -8,6 +8,13 @@
                     <div class="panel-heading">留言板</div>
 
                     <div class="panel-body">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">留言板</div>
+
+                            <div class="panel-body">
+
+                            </div>
+                        </div>
 
                     </div>
                 </div>

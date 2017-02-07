@@ -6,4 +6,5 @@ install: composer install
 before_script:
   - cp .env.example .env
   - php artisan key:generate
+  - php artisan migrate --seed
 script: vendor/bin/phpunit

@@ -15,6 +15,9 @@ class PostTest extends TestCase
     {
         $this->visit('/post')
             ->see('留言板');
+
+        $this->visit('/post')
+            ->see('#1');
     }
 
     public function test_post_create_view()

@@ -8,7 +8,7 @@
                     <div class="panel-heading">新增留言</div>
 
                     <div class="panel-body">
-                        {!! Form::open(['url' => 'post/store', 'method' => 'post']) !!}
+                        {!! Form::open(['url' => '/post', 'method' => 'post']) !!}
                         <div class="form-group">
                             {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => '標題']) !!}
                         </div>

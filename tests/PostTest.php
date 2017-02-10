@@ -25,4 +25,16 @@ class PostTest extends TestCase
         $this->visit('/post/create')
             ->see('新增留言');
     }
+
+    public function test_post_create()
+    {
+        $input = [
+            'title' => 'title',
+            'message' => 'message',
+            'user_id' => 1,
+        ];
+
+        $response = $this->json('POST', '/post', $input);
+        $response->assertRedirectedTo('/post');
+    }
 }

@@ -20,6 +20,9 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-
+        $data = $request->all();
+        $data['user_id'] = 1;
+        Post::create($data);
+        return redirect('/post');
     }
 }

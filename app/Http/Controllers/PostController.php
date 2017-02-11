@@ -2,14 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
+use App\Repositories\PostRepo;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    protected $repo;
+
+    public function __construct(PostRepo $repo)
+    {
+        $this->repo = $repo;
+    }
+
     public function index()
     {
-        $posts = Post::paginate(10);
+        $posts = $this->repo->list();
         return view('post.index', compact('posts'));
     }
 
@@ -22,7 +29,8 @@ class PostController extends Controller
     {
         $data = $request->all();
         $data['user_id'] = 1;
-        Post::create($data);
+        $this->repo->create($data);
+
         return redirect('/post');
     }
 }

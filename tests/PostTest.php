@@ -6,6 +6,8 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class PostTest extends TestCase
 {
+    use DatabaseMigrations;
+
     /**
      * A basic test example.
      *
@@ -13,6 +15,8 @@ class PostTest extends TestCase
      */
     public function test_post_view()
     {
+        factory(\App\Models\Post::class, 1)->create();
+
         $this->visit('/post')
             ->see('留言板');
 

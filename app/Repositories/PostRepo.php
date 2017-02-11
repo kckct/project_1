@@ -6,7 +6,7 @@ use App\Models\Post;
 
 class PostRepo
 {
-    public function list()
+    public function index()
     {
         return Post::paginate(10);
     }

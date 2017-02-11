@@ -20,4 +20,9 @@ class PostRepo
     {
         return Post::find($id);
     }
+
+    public function update($id)
+    {
+        return $this->getById($id)->update();;
+    }
 }

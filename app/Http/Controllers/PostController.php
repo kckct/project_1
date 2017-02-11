@@ -34,9 +34,23 @@ class PostController extends Controller
         return redirect('/post');
     }
 
+    public function show($id)
+    {
+        $post = $this->repo->getById($id);
+        return view('post.show', compact('post'));
+    }
+
     public function edit($id)
     {
         $post = $this->repo->getById($id);
         return view('post.edit', compact('post'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = $request->all();
+        $this->repo->update($data);
+
+        return redirect('/post');
     }
 }

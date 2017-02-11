@@ -42,6 +42,14 @@ class PostTest extends TestCase
         $response->assertRedirectedTo('/post');
     }
 
+    public function test_post_show_view()
+    {
+        factory(\App\Models\Post::class, 1)->create();
+
+        $this->visit('/post/1')
+            ->see('#1');
+    }
+
     public function test_post_edit_view()
     {
         factory(\App\Models\Post::class, 1)->create();

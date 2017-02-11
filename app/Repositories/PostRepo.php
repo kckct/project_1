@@ -8,7 +8,7 @@ class PostRepo
 {
     public function index()
     {
-        return Post::paginate(10);
+        return Post::orderBy('id', 'desc')->paginate(10);
     }
 
     public function create($data)

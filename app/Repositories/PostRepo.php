@@ -15,4 +15,9 @@ class PostRepo
     {
         return Post::create($data);
     }
+
+    public function getById($id)
+    {
+        return Post::find($id);
+    }
 }

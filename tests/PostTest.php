@@ -46,7 +46,7 @@ class PostTest extends TestCase
     {
         factory(\App\Models\Post::class, 1)->create();
 
-        $this->visit('/post/1/create')
+        $this->visit('/post/1/edit')
             ->see('修改留言');
     }
 }

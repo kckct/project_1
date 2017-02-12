@@ -47,4 +47,15 @@ class PostUnitTest extends TestCase
         $data = $repo->getById(1);
         $this->assertEquals(1, $data->id);
     }
+
+    /**
+     * @expectedException Illuminate\Database\Eloquent\ModelNotFoundException
+     */
+    public function test_show_no_data()
+    {
+        factory(\App\Models\Post::class, 1)->create();
+
+        $repo = new PostRepo;
+        $repo->getById(2);
+    }
 }

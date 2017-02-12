@@ -70,4 +70,12 @@ class PostTest extends TestCase
         $response = $this->json('PUT', '/post/1', $input);
         $response->assertRedirectedTo('/post');
     }
+
+    public function test_post_delete()
+    {
+        factory(\App\Models\Post::class, 1)->create();
+
+        $response = $this->json('DELETE', '/post/1');
+        $response->assertRedirectedTo('/post');
+    }
 }

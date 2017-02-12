@@ -21,8 +21,6 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     #{{ $post->id }}. <a href="/post/{{ $post->id }}">{{ $post->title }}</a>
-{{--                                    <p>{{ $post->message }}</p>--}}
-{{--                                    <p>[<a href="/post/{{ $post->id }}/edit">修改</a>]</p>--}}
                                 </div>
                             </div>
                             <hr style="margin: 10px;">

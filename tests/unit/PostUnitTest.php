@@ -72,4 +72,19 @@ class PostUnitTest extends TestCase
         $data = $repo->update(1, $input);
         $this->assertEquals(1, count($data));
     }
+
+    /**
+     * @expectedException Illuminate\Database\Eloquent\ModelNotFoundException
+     */
+    public function test_edit_data_not_exist()
+    {
+        $input = [
+            'title' => 'title',
+            'message' => 'message',
+        ];
+
+        $repo = new PostRepo;
+        $data = $repo->update(1, $input);
+        $this->assertEquals(1, count($data));
+    }
 }

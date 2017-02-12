@@ -57,7 +57,14 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
-        $this->repo->update($id, $data);
+        try
+        {
+            $this->repo->update($id, $data);
+        }
+        catch (ModelNotFoundException $e)
+        {
+//            return redirect('/post');
+        }
 
         return redirect('/post');
     }

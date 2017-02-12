@@ -8,7 +8,7 @@
                     <div class="panel-heading">修改留言</div>
 
                     <div class="panel-body">
-                        <form method="POST" action="/post">
+                        <form method="POST" action="/post/{{ $post->id }}">
                             {{ csrf_field() }}
                             {{ method_field('PUT') }}
                             <div class="form-group">

@@ -58,4 +58,18 @@ class PostUnitTest extends TestCase
         $repo = new PostRepo;
         $repo->getById(2);
     }
+
+    public function test_edit_data()
+    {
+        factory(\App\Models\Post::class, 1)->create();
+
+        $input = [
+            'title' => 'title',
+            'message' => 'message',
+        ];
+
+        $repo = new PostRepo;
+        $data = $repo->update(1, $input);
+        $this->assertEquals(1, count($data));
+    }
 }

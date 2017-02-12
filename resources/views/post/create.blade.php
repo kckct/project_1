@@ -32,6 +32,7 @@
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-default">送出</button>
+                                <a href="{{ url()->previous() }}" class="btn btn-default">返回</a>
                             </div>
                         </form>
                     </div>

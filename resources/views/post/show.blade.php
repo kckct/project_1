@@ -16,6 +16,7 @@
                         <div class="form-group">
                             <a href="/post/{{ $post->id }}/edit" class="btn btn-default">修改</a>
                             <a href="#modal-delete" class="btn btn-default" data-toggle="modal">刪除</a>
+                            <a href="{{ url('/post') }}" class="btn btn-default">返回</a>
                         </div>
                     </div>
                 </div>

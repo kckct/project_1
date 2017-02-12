@@ -50,7 +50,14 @@ class PostController extends Controller
 
     public function edit($id)
     {
-        $post = $this->repo->getById($id);
+        try
+        {
+            $post = $this->repo->getById($id);
+        }
+        catch (ModelNotFoundException $e)
+        {
+            return redirect('/post');
+        }
         return view('post.edit', compact('post'));
     }
 
@@ -63,9 +70,21 @@ class PostController extends Controller
         }
         catch (ModelNotFoundException $e)
         {
-//            return redirect('/post');
-        }
 
+        }
+        return redirect('/post');
+    }
+
+    public function destroy($id)
+    {
+        try
+        {
+            $this->repo->delete($id);
+        }
+        catch (ModelNotFoundException $e)
+        {
+
+        }
         return redirect('/post');
     }
 }

@@ -20,8 +20,10 @@ Route::get('/post/create', 'PostController@create');
 Route::post('/post', 'PostController@store');
 Route::get('/post/{post}', 'PostController@show');
 Route::get('/post/{post}/edit', 'PostController@edit');
+Route::put('/post/{post}', 'PostController@update');
+Route::delete('/post/{post}', 'PostController@destroy');
 
-Route::resource('/post', 'PostController');
+//Route::resource('/post', 'PostController');
 
 Auth::routes();
 

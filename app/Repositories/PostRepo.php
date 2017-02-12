@@ -25,4 +25,9 @@ class PostRepo
     {
         return $this->getById($id)->update($data);
     }
+
+    public function delete($id)
+    {
+        return $this->getById($id)->delete();
+    }
 }

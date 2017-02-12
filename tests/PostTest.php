@@ -57,4 +57,17 @@ class PostTest extends TestCase
         $this->visit('/post/1/edit')
             ->see('修改留言');
     }
+
+    public function test_post_edit()
+    {
+        factory(\App\Models\Post::class, 1)->create();
+
+        $input = [
+            'title' => 'title',
+            'message' => 'message',
+        ];
+
+        $response = $this->json('PUT', '/post/1', $input);
+        $response->assertRedirectedTo('/post');
+    }
 }

@@ -87,4 +87,13 @@ class PostUnitTest extends TestCase
         $data = $repo->update(1, $input);
         $this->assertEquals(1, count($data));
     }
+
+    public function test_delete_data()
+    {
+        factory(\App\Models\Post::class, 1)->create();
+
+        $repo = new PostRepo;
+        $data = $repo->delete(1);
+        $this->assertEquals(1, count($data));
+    }
 }

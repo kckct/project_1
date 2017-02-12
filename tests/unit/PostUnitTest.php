@@ -96,4 +96,14 @@ class PostUnitTest extends TestCase
         $data = $repo->delete(1);
         $this->assertEquals(1, count($data));
     }
+
+    /**
+     * @expectedException Illuminate\Database\Eloquent\ModelNotFoundException
+     */
+    public function test_delete_data_not_exist()
+    {
+        $repo = new PostRepo;
+        $data = $repo->delete(1);
+        $this->assertEquals(1, count($data));
+    }
 }

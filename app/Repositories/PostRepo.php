@@ -18,7 +18,7 @@ class PostRepo
 
     public function getById($id)
     {
-        return Post::find($id);
+        return Post::findOrFail($id);
     }
 
     public function update($id)

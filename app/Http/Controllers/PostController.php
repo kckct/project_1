@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\PostRepo;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -36,7 +37,14 @@ class PostController extends Controller
 
     public function show($id)
     {
-        $post = $this->repo->getById($id);
+        try
+        {
+            $post = $this->repo->getById($id);
+        }
+        catch (ModelNotFoundException $e)
+        {
+            return redirect('/post');
+        }
         return view('post.show', compact('post'));
     }
 

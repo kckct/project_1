@@ -57,7 +57,7 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
-        $this->repo->update($data);
+        $this->repo->update($id, $data);
 
         return redirect('/post');
     }

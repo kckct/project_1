@@ -21,8 +21,8 @@ class PostRepo
         return Post::findOrFail($id);
     }
 
-    public function update($id)
+    public function update($id, $data)
     {
-        return $this->getById($id)->update();;
+        return $this->getById($id)->update($data);
     }
 }

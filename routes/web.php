@@ -21,6 +21,8 @@ Route::post('/post', 'PostController@store');
 Route::get('/post/{post}', 'PostController@show');
 Route::get('/post/{post}/edit', 'PostController@edit');
 
+Route::resource('/post', 'PostController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
